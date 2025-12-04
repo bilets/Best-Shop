@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Best Shop Catalog - Browse our premium collection of suitcases, luggage sets, and travel accessories."
+    />
+    <title>Catalog - Best Shop</title>
+    <link rel="stylesheet" href="../../dist/css/main.css" />
+  </head>
+  <body>
+    <!-- Header Container -->
+    <div id="header-container"></div>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Catalog Section -->
+      <section class="catalog-section">
+        <div class="catalog-section__container">
+          <!-- Filters Section -->
+          <div class="catalog-filters">
+            <div class="catalog-filters__top">
+              <!-- Size Filter -->
+              <div class="catalog-filters__group">
+                <label class="catalog-filters__label" for="size-filter">Size</label>
+                <div class="custom-dropdown" data-filter="size">
+                  <div class="custom-dropdown__selected" id="size-filter">
+                    Choose option
+                  </div>
+                  <ul class="custom-dropdown__menu">
+                    <li class="custom-dropdown__item" data-value="">Choose option</li>
+                    <li class="custom-dropdown__item" data-value="S">Small</li>
+                    <li class="custom-dropdown__item" data-value="M">Medium</li>
+                    <li class="custom-dropdown__item" data-value="L">Large</li>
+                    <li class="custom-dropdown__item" data-value="XL">Extra Large</li>
+                    <li class="custom-dropdown__item" data-value="SL">S-L</li>
+                    <li class="custom-dropdown__item" data-value="S, M, XL">S, M, XL Set</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Color Filter -->
+              <div class="catalog-filters__group">
+                <label class="catalog-filters__label" for="color-filter">Color</label>
+                <div class="custom-dropdown" data-filter="color">
+                  <div class="custom-dropdown__selected" id="color-filter">
+                    Choose option
+                  </div>
+                  <ul class="custom-dropdown__menu">
+                    <li class="custom-dropdown__item" data-value="">Choose option</li>
+                    <li class="custom-dropdown__item" data-value="red">Red</li>
+                    <li class="custom-dropdown__item" data-value="blue">Blue</li>
+                    <li class="custom-dropdown__item" data-value="green">Green</li>
+                    <li class="custom-dropdown__item" data-value="black">Black</li>
+                    <li class="custom-dropdown__item" data-value="grey">Grey</li>
+                    <li class="custom-dropdown__item" data-value="yellow">Yellow</li>
+                    <li class="custom-dropdown__item" data-value="pink">Pink</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Category Filter -->
+              <div class="catalog-filters__group">
+                <label class="catalog-filters__label" for="category-filter">Category</label>
+                <div class="custom-dropdown" data-filter="category">
+                  <div class="custom-dropdown__selected" id="category-filter">
+                    Choose option
+                  </div>
+                  <ul class="custom-dropdown__menu">
+                    <li class="custom-dropdown__item" data-value="">Choose option</li>
+                    <li class="custom-dropdown__item" data-value="carry-ons">Carry-ons</li>
+                    <li class="custom-dropdown__item" data-value="suitcases">Suitcases</li>
+                    <li class="custom-dropdown__item" data-value="luggage sets">Luggage Sets</li>
+                    <li class="custom-dropdown__item" data-value="kids' luggage">Kids' Luggage</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Sales Checkbox -->
+              <div class="catalog-filters__group">
+                <label class="catalog-filters__label" for="sales-filter">Sales</label>
+                <div class="catalog-filters__checkbox-wrapper">
+                  <input
+                    type="checkbox"
+                    id="sales-filter"
+                    class="catalog-filters__checkbox"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Filter Actions -->
+            <div class="catalog-filters__actions">
+              <button
+                class="btn btn--large catalog-filters__btn"
+                id="clear-filters"
+              >
+                Clear Filters
+              </button>
+              <button
+                class="btn btn--large catalog-filters__btn"
+                id="hide-filters"
+              >
+                Hide Filters
+              </button>
+            </div>
+          </div>
+
+          <!-- Main Catalog Content with Sidebar -->
+          <div class="catalog-main">
+            <!-- Search Sort and Results Controls -->
+            <div class="catalog-controls">
+              <!-- Results Info -->
+              <div class="catalog-results">
+                <p class="catalog-results__text" id="results-info">
+                  Showing
+                  <span id="results-start"></span>-<span id="results-end"></span>
+                  Of
+                  <span id="results-total">15</span>
+                  Results
+                </p>
+              </div>
+              <!-- Show Filters Button (hidden by default, appears when filters are hidden) -->
+              <button
+                class="btn show-filters-btn"
+                id="show-filters"
+                style="display: none"
+              >
+                Show Filters
+              </button>
+              <!-- Sort Dropdown -->
+              <div class="sort-dropdown">
+                <select class="sort-dropdown__select" id="sort-select">
+                  <option value="default">Default Sorting</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="popularity">Most Popular</option>
+                  <option value="rating">Highest Rated</option>
+                </select>
+              </div>
+              <!-- Search Bar -->
+              <div class="search-bar">
+                <input
+                  type="text"
+                  class="search-bar__input"
+                  placeholder="Search Models"
+                  id="search-input"
+                />
+                <button class="search-bar__button" id="search-button"></button>
+              </div>
+            </div>
+
+            <!-- Left Column: Products -->
+            <div class="catalog-main__products">
+              <!-- Products Grid -->
+              <div class="product-grid" id="catalog-products">
+                <!-- Products will be loaded dynamically -->
+              </div>
+
+              <!-- Pagination -->
+              <div class="pagination" id="pagination">
+                <button
+                  class="pagination__btn pagination__btn--prev"
+                  id="prev-page"
+                >
+                  Prev
+                </button>
+                <div class="pagination__pages" id="page-numbers">
+                  <!-- Page numbers will be generated dynamically -->
+                </div>
+                <button
+                  class="pagination__btn pagination__btn--next"
+                  id="next-page"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+
+            <!-- Right Column: Top Best Sets Sidebar -->
+            <aside class="catalog-sidebar">
+              <h3 class="catalog-sidebar__title">Top Best Sets</h3>
+              <div class="best-sets-list" id="best-sets">
+                <!-- Best sets will be loaded dynamically -->
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <script src="../js/main.js" type="module"></script>
+    <script src="../js/catalog.js" type="module"></script>
+  </body>
+</html>
