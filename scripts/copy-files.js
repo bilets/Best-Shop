@@ -37,6 +37,7 @@ async function build() {
 
     const filesToCopy = [
       { src: path.join(srcDir, 'index.html'), dest: path.join(distDir, 'index.html') },
+      { src: path.join(srcDir, 'favicon.svg'), dest: path.join(distDir, 'favicon.svg') },
     ];
 
     for (const { src, dest } of filesToCopy) {
