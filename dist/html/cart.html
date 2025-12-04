@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Best Shop - Your Shopping Cart. Review and manage your selected items."
+    />
+    <title>My Cart - Best Shop</title>
+    <link rel="stylesheet" href="../../dist/css/main.css" />
+  </head>
+  <body>
+    <!-- Header Container -->
+    <div id="header-container"></div>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Page Hero -->
+      <section class="page-hero page-hero--cart">
+        <div class="page-hero__overlay"></div>
+        <h1 class="page-hero__title">My Cart</h1>
+      </section>
+
+      <!-- Cart Section -->
+      <section class="cart-section">
+        <div class="cart-section__container">
+          <!-- Cart Content -->
+          <div id="cart-content">
+            <!-- Cart Items Table -->
+            <div class="cart-table-wrapper" id="cart-table-wrapper">
+              <table class="cart-table">
+                <thead class="cart-table__head">
+                  <tr>
+                    <th class="cart-table__th">IMAGE</th>
+                    <th class="cart-table__th">PRODUCT NAME</th>
+                    <th class="cart-table__th">PRICE</th>
+                    <th class="cart-table__th">QUANTITY</th>
+                    <th class="cart-table__th">TOTAL</th>
+                    <th class="cart-table__th">DELETE</th>
+                  </tr>
+                </thead>
+                <tbody class="cart-table__body" id="cart-items">
+                  <!-- Cart items will be inserted here dynamically -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Empty Cart Message (hidden by default) -->
+            <div class="cart-empty" id="cart-empty" style="display: none">
+              <p>Your cart is empty. Use the catalog to add new items.</p>
+              <a href="catalog.html" class="btn btn--large">Go to Catalog</a>
+            </div>
+
+            <div class="cart-actions-summary-wrapper">
+              <!-- Cart Actions -->
+              <div class="cart-actions" id="cart-actions">
+                <button class="btn" id="continue-shopping">
+                  CONTINUE SHOPPING
+                </button>
+                <button class="btn" id="clear-cart">
+                  CLEAR SHOPPING CART
+                </button>
+              </div>
+
+              <!-- Cart Summary -->
+              <div class="cart-summary" id="cart-summary">
+                <div class="cart-summary__item">
+                  <span class="cart-summary__label">Sub Total</span>
+                  <span class="cart-summary__value" id="subtotal">$0</span>
+                </div>
+                <div
+                  class="cart-summary__item"
+                  id="discount-row"
+                  style="display: none"
+                >
+                  <span class="cart-summary__label">Discount</span>
+                  <span class="cart-summary__value" id="discount">$0</span>
+                </div>
+                <div class="cart-summary__item">
+                  <span class="cart-summary__label">Shipping</span>
+                  <span class="cart-summary__value" id="shipping">$30</span>
+                </div>
+                <div class="cart-summary__item cart-summary__item--total">
+                  <span class="cart-summary__label">Total</span>
+                  <span class="cart-summary__value" id="total">$0</span>
+                </div>
+                <button class="btn" id="checkout">CHECKOUT</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Thank You Message (hidden by default) -->
+          <div class="cart-thankyou" id="cart-thankyou" style="display: none">
+            <h2>Thank you for your purchase!</h2>
+            <p>Your order has been successfully placed.</p>
+            <a href="../index.html" class="btn btn--large">Continue Shopping</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/cart.js"></script>
+  </body>
+</html>

@@ -2,8 +2,9 @@
 node_modules/
 
 # Build output
-dist/
 build/
+# Keep dist/ for gh-pages deployment
+# dist/
 
 # Environment files
 .env
