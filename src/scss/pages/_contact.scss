@@ -1,0 +1,175 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// NOTE: .page-hero component is defined in components/_page-hero.scss (shared component)
+// NOTE: .info-grid and .info-card components are defined in components/_info-card.scss (shared components)
+
+// Contact Info Section
+.contact-info-section {
+  padding: 100px 0;
+
+  @include desktop {
+    padding: $spacing-xxl 0;
+  }
+
+  @include tablet {
+    padding: $spacing-xl 0;
+  }
+
+  @include mobile {
+    padding: $spacing-xs 0;
+  }
+
+  &__container {
+    @include container;
+  }
+}
+
+// Contact Form Section
+.contact-form-section {
+  padding: $spacing-lg 0 120px 0;
+
+  @include mobile {
+    padding: $spacing-lg 0;
+  }
+
+  &__container {
+    @include container;
+  }
+}
+
+.contact-form-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+
+  @include desktop {
+    gap: $spacing-md;
+  }
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+
+  &__image {
+    order: 1;
+    overflow: hidden;
+    width: 100%;
+
+    @include tablet {
+      max-height: 500px;
+    }
+
+    @include mobile {
+      max-height: 500px;
+    }
+
+    img {
+      @include image-cover;
+    }
+  }
+
+  &__form {
+    position: relative;
+    order: 2;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-lg;
+
+    @include tablet {
+      font-size: $font-size-h3;
+    }
+
+    @include mobile {
+      font-size: $font-size-large;
+      margin-bottom: $spacing-sm;
+    }
+  }
+
+  &__description {
+    color: $text-primary;
+    margin-bottom: $spacing-xxxl;
+
+    @include mobile {
+      font-size: $font-size-small;
+      margin-bottom: $spacing-md;
+    }
+  }
+}
+
+// ===========================================
+// CONTACT FORM - specific styles
+// ===========================================
+
+.contact-form {
+  // Override label styles for contact form
+  .form-label {
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+
+    @include mobile {
+      font-size: $font-size-small;
+    }
+  }
+
+  // Override input styles for contact form
+  .form-input,
+  .form-textarea {
+    padding: $spacing-xs;
+
+    @include mobile {
+      padding: $spacing-xs $spacing-sm;
+      font-size: $font-size-small;
+    }
+
+    &.error {
+      border-color: $primary-color;
+    }
+  }
+
+  .form-textarea {
+    @include mobile {
+      min-height: 100px;
+    }
+  }
+
+  .form-error {
+    font-size: $font-size-small;
+    margin-top: $spacing-xs;
+    min-height: 20px;
+
+    @include mobile {
+      font-size: 13px;
+    }
+  }
+
+  .btn {
+    margin-top: $spacing-md;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  .form-message {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: $spacing-md;
+
+    @include mobile {
+      padding: $spacing-sm;
+      font-size: $font-size-small;
+    }
+  }
+}

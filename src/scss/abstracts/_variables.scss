@@ -1,0 +1,94 @@
+// Colors
+$primary-color: #b92770;
+$secondary-color: #727174;
+$muted-color: #e9e9ed;
+$error-color: #ff2c2c;
+$success-color: #28a745;
+$star-color: #f5b423;
+
+$text-primary: #000000;
+$text-secondary: #504e4a;
+$text-light: #ffffff;
+$text-muted: #727174;
+
+$bg-primary: #ffffff;
+$bg-secondary: #e7e8e9;
+$bg-dark: #504e4a;
+$bg-success: #d4edda;
+$bg-error: #f8d7da;
+
+// Typography
+$font-family-primary: 'Montserrat', 'Arial', sans-serif;
+$font-family-secondary: 'Inter', sans-serif;
+$font-family-btn-card: -apple-system, BlinkMacSystemFont, 'SF Pro Display',
+  'SF Pro Text', system-ui, sans-serif;
+
+$font-size-xs: 13px;
+$font-size-small: 15px;
+$font-size-medium: 16px;
+$font-size-base: 17px;
+$font-size-large: 19px;
+$font-size-xl: 24px;
+
+$font-size-h1: 50px;
+$font-size-h2: 40px;
+$font-size-h3: 32px;
+$font-size-h4: 21px;
+$font-size-h5: 19px;
+$font-size-h6: 15px;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// Spacing
+$spacing-xs: 8px;
+$spacing-sm: 16px;
+$spacing-md: 24px;
+$spacing-lg: 32px;
+$spacing-xl: 40px;
+$spacing-xxl: 60px;
+$spacing-xxxl: 70px;
+
+// Space for fixed header
+$spacing-header-large-desktop: 160px;
+$spacing-header-desktop: 128px;
+$spacing-header-tablet: 112px;
+$spacing-header-mobile: 69px;
+
+// Breakpoints
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1024px;
+$breakpoint-desktop: 1440px;
+
+// Container
+$container-mobile: 768px;
+$container-tablet: 1024px;
+$container-desktop: 1440px;
+
+// Category Card
+$category-card-width: 296px;
+
+// Product Card
+$product-card-width: 296px;
+
+// Border
+$border-width: 2px;
+$border-color: $muted-color;
+$border-style: solid;
+
+// Border Radius
+$border-radius-sm: 0;
+$border-radius-md: 0;
+$border-radius-lg: 0;
+
+// Shadows
+$box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.05);
+$box-shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.15);
+$box-shadow-heavy: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;

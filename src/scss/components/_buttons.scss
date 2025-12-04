@@ -1,0 +1,77 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:color';
+
+// Primary Button
+.btn {
+  @include button-reset;
+  display: inline-block;
+  background-color: $primary-color;
+  color: $text-light;
+  font-weight: $font-weight-bold;
+  border: none;
+  transition: background-color $transition-normal, transform $transition-fast;
+  box-shadow: $box-shadow-light;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: color.adjust($primary-color, $lightness: -10%);
+    transform: translateY(-1px);
+    box-shadow: $box-shadow-medium;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &--primary {
+    padding: $spacing-xs $spacing-lg;
+    font-size: $font-size-base;
+    font-family: $font-family-btn-card;
+  }
+
+  &--large {
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-large;
+  }
+
+  &--form {
+    padding: 10px 20px;
+    font-size: $font-size-xs;
+    font-family: $font-family-secondary;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// Icon Button
+.icon-btn {
+  @include button-reset;
+  @include flex-center;
+  color: $text-primary;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary-color;
+  }
+
+  img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+
+    @include mobile {
+      width: 29px;
+      height: 29px;
+    }
+  }
+}

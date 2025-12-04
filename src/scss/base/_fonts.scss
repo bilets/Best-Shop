@@ -1,0 +1,65 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+// Typography Styles
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-primary;
+  color: $text-primary;
+  line-height: 1.2;
+  margin-bottom: $spacing-xs;
+}
+
+h1 {
+  font-size: $font-size-h1;
+  font-weight: $font-weight-black;
+
+  @include tablet {
+    font-size: $font-size-h2;
+  }
+
+  @include mobile {
+    font-size: $font-size-h2;
+  }
+}
+
+h2 {
+  font-size: $font-size-h2;
+  font-weight: $font-weight-black;
+  @include mobile {
+    font-size: $font-size-h3;
+  }
+}
+
+h3 {
+  font-size: $font-size-h3;
+  font-weight: $font-weight-bold;
+  @include mobile {
+    font-size: $font-size-h4;
+  }
+}
+
+h4 {
+  font-size: $font-size-h4;
+  font-weight: $font-weight-bold;
+}
+
+h5 {
+  font-size: $font-size-h5;
+  font-weight: $font-weight-bold;
+}
+
+p {
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  color: $text-secondary;
+  @include mobile {
+    font-size: $font-size-small;
+  }
+}

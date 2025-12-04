@@ -1,0 +1,499 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Section Title
+.section-title {
+  text-align: center;
+  margin-bottom: $spacing-xs;
+}
+
+.section-subtitle {
+  text-align: center;
+  margin-bottom: $spacing-xxl;
+}
+
+// Hero Section
+.hero {
+  background-color: $bg-secondary;
+  padding: $spacing-xxl 0 180px;
+
+  @include tablet {
+    padding: 50px 0 150px;
+  }
+
+  @include mobile {
+    padding: $spacing-xl 0 180px;
+  }
+
+  &__container {
+    @include container;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__content {
+    @include mobile {
+      order: 2;
+    }
+  }
+
+  &__title {
+    margin-bottom: $spacing-lg;
+  }
+
+  &__subtitle {
+    margin-bottom: $spacing-lg;
+    max-width: 80%;
+  }
+
+  &__image {
+    display: flex;
+    justify-content: end;
+
+    @include mobile {
+      order: 1;
+      justify-content: center;
+    }
+
+    img {
+      @include image-cover;
+
+      @include mobile {
+        max-width: 70%;
+      }
+    }
+  }
+}
+
+// Testimonial Section
+.testimonial-section {
+  position: relative;
+  z-index: 10;
+  top: -110px;
+
+  &__container {
+    @include container;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @include desktop {
+      display: flex;
+    }
+
+    @include tablet {
+      display: flex;
+    }
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.testimonial-card {
+  background-color: $bg-primary;
+  padding: $spacing-xxxl;
+  box-shadow: $box-shadow-light;
+  flex-shrink: 3;
+
+  @include desktop {
+    padding: $spacing-lg;
+  }
+
+  @include tablet {
+    padding: $spacing-lg;
+  }
+
+  @include mobile {
+    padding: $spacing-lg;
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+
+    .author-image {
+      width: 85px;
+      height: 93px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .author-info {
+      @include flex-column;
+    }
+
+    .author-position {
+      color: $text-primary;
+    }
+  }
+
+  &__title {
+    margin-bottom: $spacing-md;
+  }
+}
+
+.discount-banner {
+  position: relative;
+  @include flex-center;
+
+  aspect-ratio: 646 / 566;
+  background-image: url('/src/assets/images/home/discount-bg.png');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-shadow: $box-shadow-light;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  &__content {
+    position: relative;
+    padding: $spacing-xxxl;
+    z-index: 2;
+
+    @include desktop {
+      padding: $spacing-xl;
+    }
+
+    @include tablet {
+      padding: $spacing-lg;
+    }
+  }
+
+  &__title {
+    color: $text-light;
+    margin-bottom: $spacing-md;
+  }
+
+  &__text {
+    color: $text-light;
+    max-width: 80%;
+    opacity: 0.9;
+    margin-bottom: $spacing-md;
+  }
+}
+
+// Travel Suitcases Categories Section
+.categories-section {
+  padding-bottom: $spacing-xxl;
+
+  &__container {
+    @include container;
+  }
+}
+
+.category-slider {
+  position: relative;
+  margin-top: 48px;
+
+  &__wrapper {
+    overflow: hidden;
+    width: 100%;
+
+    @include tablet {
+      width: calc(2 * $category-card-width + $spacing-lg);
+      margin: 0 auto;
+    }
+
+    @include mobile {
+      width: $category-card-width;
+      margin: 0 auto;
+    }
+  }
+
+  &__track {
+    display: flex;
+    gap: 35px;
+    transition: transform $transition-slow;
+  }
+
+  &__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 48px;
+    @include button-reset;
+    background-color: $bg-primary;
+    border: $border-width $border-style $primary-color;
+    color: $primary-color;
+    cursor: pointer;
+    z-index: 10;
+    transition: all $transition-fast;
+
+    &:hover {
+      background-color: $primary-color;
+      color: $text-light;
+    }
+
+    &--prev {
+      left: -24px;
+
+      @include mobile {
+        left: 0;
+      }
+    }
+
+    &--next {
+      right: -24px;
+
+      @include mobile {
+        right: 0;
+      }
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+
+      &:hover {
+        background-color: $bg-primary;
+        color: $primary-color;
+      }
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: $spacing-lg;
+  }
+
+  &__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    @include button-reset;
+    background-color: $muted-color;
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+
+    &.active {
+      background-color: $primary-color;
+    }
+  }
+}
+
+.category-card {
+  position: relative;
+  width: $category-card-width;
+  aspect-ratio: 296 / 600;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform $transition-fast;
+  box-shadow: $box-shadow-light;
+
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $box-shadow-heavy;
+
+    .category-card__image {
+      transform: scale(1.1);
+    }
+  }
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-slow;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  &__content {
+    position: absolute;
+    z-index: 2;
+    padding: $spacing-xl;
+    height: 100%;
+    @include flex-column;
+    justify-content: flex-end;
+  }
+
+  &__title {
+    color: $text-light;
+    line-height: 1.4;
+  }
+
+  &__description {
+    font-size: $font-size-large;
+    color: $text-light;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+}
+
+// Products Section
+.products-section {
+  padding: $spacing-xxl 0;
+  background-color: $bg-primary;
+
+  &__container {
+    @include container;
+  }
+}
+
+// Offer Banner Section
+.offer-banner {
+  padding: $spacing-xxl 0;
+
+  &__container {
+    @include container;
+  }
+
+  &__content {
+    position: relative;
+    background: url('/src/assets/images/home/offer-bg.png') center/cover;
+    min-height: 407px;
+    @include flex-center;
+    padding: $spacing-md 100px;
+    gap: 174px;
+    overflow: hidden;
+
+    @include desktop {
+      padding: $spacing-sm $spacing-xl;
+      gap: $spacing-xxxl;
+    }
+
+    @include tablet {
+      flex-direction: column;
+      gap: $spacing-xl;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      gap: $spacing-xl;
+      padding: $spacing-md;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  &__left {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+
+  &__percentage {
+    font-size: 223px;
+    font-weight: $font-weight-black;
+    color: $text-light;
+    line-height: 1;
+
+    @include desktop {
+      font-size: 165px;
+    }
+    @include mobile {
+      font-size: 140px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    color: $text-light;
+    line-height: 1.4;
+    opacity: 0.9;
+  }
+
+  &__right {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__title {
+    color: $text-light;
+    margin-bottom: $spacing-md;
+  }
+
+  &__description {
+    color: $text-light;
+    margin-bottom: $spacing-md;
+    opacity: 0.9;
+  }
+}
+
+// Customers Section
+.customers-section {
+  padding: $spacing-xxl 0 120px;
+
+  &__container {
+    @include container;
+  }
+}
+
+.customers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.customer-card {
+  background-color: $bg-primary;
+  padding: $spacing-xl $spacing-lg $spacing-lg;
+  box-shadow: $box-shadow-heavy;
+  text-align: center;
+  @include flex-column;
+  align-items: center;
+  gap: 20px;
+
+  &__image {
+    width: 98px;
+    height: 98px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__name {
+    font-size: $font-size-base;
+    color: $primary-color;
+  }
+}

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Product Details - Best Shop Premium Suitcases and Luggage"
+    />
+    <title>Product Details - Best Shop</title>
+    <link rel="stylesheet" href="../../dist/css/main.css" />
+  </head>
+  <body>
+    <!-- Header Container -->
+    <div id="header-container"></div>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Product Details Section -->
+      <section class="product-section">
+        <div class="product-section__container">
+          <!-- Product Main Info -->
+          <div class="product-main">
+            <!-- Product Images -->
+            <div class="product-images">
+              <div class="product-images__main">
+                <img
+                  src=""
+                  alt="Product"
+                  class="product-images__main-img"
+                  id="main-product-image"
+                />
+              </div>
+              <div class="product-images__thumbnails" id="product-thumbnails">
+                <!-- Thumbnails will be loaded dynamically -->
+              </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-info">
+              <h1 class="product-info__title" id="product-name">Loading...</h1>
+              <div class="product-info__rating" id="product-rating">
+                <!-- Rating stars will be loaded dynamically -->
+              </div>
+              <p class="product-info__price" id="product-price">$0.00</p>
+
+              <p class="product-info__description" id="product-description">
+                Product description will be loaded here...
+              </p>
+
+              <!-- Product Options -->
+              <div class="product-options">
+                <div class="product-options__group">
+                  <label class="product-options__label" for="product-size">Size</label>
+                  <select class="product-options__select" id="product-size">
+                    <option value="">Choose option</option>
+                  </select>
+                </div>
+
+                <div class="product-options__group">
+                  <label class="product-options__label" for="product-color">Color</label>
+                  <select class="product-options__select" id="product-color">
+                    <option value="">Choose option</option>
+                  </select>
+                </div>
+
+                <div class="product-options__group">
+                  <label class="product-options__label" for="product-category-select">Category</label>
+                  <select
+                    class="product-options__select"
+                    id="product-category-select"
+                  >
+                    <option value="">Choose option</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Quantity and Add to Cart -->
+              <div class="product-actions">
+                <div class="quantity-selector">
+                  <button
+                    class="quantity-selector__btn"
+                    id="quantity-decrease"
+                    aria-label="Decrease quantity"
+                  >
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    class="quantity-selector__input"
+                    id="product-quantity"
+                    value="1"
+                    min="1"
+                    readonly
+                  />
+                  <button
+                    class="quantity-selector__btn"
+                    id="quantity-increase"
+                    aria-label="Increase quantity"
+                  >
+                    +
+                  </button>
+                </div>
+
+                <button
+                  class="btn btn--primary product-actions__btn"
+                  id="add-to-cart-btn"
+                >
+                  Add to Cart
+                </button>
+              </div>
+
+              <!-- Payment Methods -->
+              <div class="product-payment">
+                <span class="product-payment__label">Payment:</span>
+                <div class="product-payment__icons">
+                  <img src="../assets/images/product/visa-pay-logo.svg" alt="VISA" class="product-payment__icon" />
+                  <img src="../assets/images/product/american-express-logo.svg" alt="American Express" class="product-payment__icon" />
+                  <img src="../assets/images/product/master-card-logo.svg" alt="MasterCard" class="product-payment__icon" />
+                  <img src="../assets/images/product/paypal-logo.svg" alt="PayPal" class="product-payment__icon" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Tabs -->
+          <div class="product-tabs">
+            <div class="product-tabs__nav">
+              <button
+                class="product-tabs__btn product-tabs__btn--active"
+                data-tab="details"
+              >
+                DETAILS
+              </button>
+              <button class="product-tabs__btn" data-tab="reviews">
+                REVIEWS
+              </button>
+              <button class="product-tabs__btn" data-tab="shipping">
+                SHIPPING POLICY
+              </button>
+            </div>
+
+            <div class="product-tabs__content">
+              <!-- Details Tab -->
+              <div
+                class="product-tabs__panel product-tabs__panel--active"
+                id="tab-details"
+              >
+                <p id="product-full-description">
+                  Detailed product description will be loaded here...
+                </p>
+              </div>
+
+              <!-- Reviews Tab -->
+              <div class="product-tabs__panel" id="tab-reviews">
+                <div class="reviews-container">
+                  <!-- Existing Reviews Section -->
+                  <div class="reviews-list">
+                    <h3 class="reviews-list__title">
+                      1 review for
+                      <span id="review-product-name">Product Name</span>
+                    </h3>
+
+                    <!-- Single Review -->
+                    <div class="review-item">
+                      <div class="review-item__avatar">
+                        <img
+                          src="../assets/images/product/review customer.png"
+                          alt="Ella Harper"
+                        />
+                      </div>
+                      <div class="review-item__content">
+                        <div class="review-item__header">
+                          <span class="review-item__author">Ella Harper</span>
+                          <span class="review-item__date">/ June 11, 2025</span>
+                        </div>
+                        <div class="review-item__rating">
+                          <span class="star">★</span>
+                          <span class="star">★</span>
+                          <span class="star">★</span>
+                          <span class="star">★</span>
+                          <span class="star" style="color: #ddd">★</span>
+                        </div>
+                        <p class="review-item__text">
+                          Proin iaculis nibh vitae lectus mollis bibendum.
+                          Quisque varius eget urna sit amet luctus. Suspendisse
+                          potenti curabitur ac placerat est, sit amet sodales
+                          risus.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Add Review Form Section -->
+                  <div class="add-review">
+                    <h4 class="add-review__title">Add Review</h4>
+                    <p class="add-review__notice">
+                      Your email address won’t be shared with anybody. Required
+                      fields have the symbol <span class="required">*</span>
+                    </p>
+
+                    <form id="review-form" class="review-form">
+                      <!-- Star Rating Selector -->
+                      <div class="review-form__row">
+                        <label class="form-label" for="review-rating">RATE PRODUCT</label>
+                        <div class="star-rating" id="star-rating">
+                          <span class="star-rating__star" data-rating="1">★</span>
+                          <span class="star-rating__star" data-rating="2">★</span>
+                          <span class="star-rating__star" data-rating="3">★</span>
+                          <span class="star-rating__star" data-rating="4">★</span>
+                          <span class="star-rating__star" data-rating="5">★</span>
+                        </div>
+                        <input type="hidden" id="review-rating" name="rating" required />
+                      </div>
+
+                      <!-- Review Text -->
+                      <div class="form-group">
+                        <textarea
+                          class="form-textarea"
+                          id="review-comment"
+                          placeholder="Your Review*"
+                          rows="6"
+                          required
+                        ></textarea>
+                      </div>
+
+                      <!-- Name and Email (side by side) -->
+                      <div class="review-form__row">
+                        <div class="form-group form-group--half">
+                          <input
+                            type="text"
+                            class="form-input"
+                            id="review-name"
+                            placeholder="Your Name*"
+                            required
+                          />
+                        </div>
+                        <div class="form-group form-group--half">
+                          <input
+                            type="email"
+                            class="form-input"
+                            id="review-email"
+                            placeholder="Your Email*"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <!-- Save Checkbox -->
+                      <div class="form-group form-group--checkbox">
+                        <label class="checkbox-label checkbox-label--multiline">
+                          <input type="checkbox" class="checkbox-input" id="review-save" name="save" />
+                          <span class="checkbox-text">Save my name, email, and website in this browser for when I leave another comment.</span>
+                        </label>
+                      </div>
+
+                      <!-- Submit Button -->
+                      <button type="submit" class="btn btn--form btn--full-width">
+                        SUBMIT
+                      </button>
+                    </form>
+
+                    <!-- Form Messages -->
+                    <div class="form-message" id="review-message" style="display: none"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Shipping Policy Tab -->
+              <div class="product-tabs__panel" id="tab-shipping">
+                <p>
+                  We offer fast and reliable shipping to ensure your order
+                  arrives safely and on time. Standard shipping takes 5-7
+                  business days. Express shipping options are available at
+                  checkout.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- You May Also Like Section -->
+      <section class="related-products-section">
+        <div class="related-products-section__container">
+          <h2 class="related-products-section__title">You May Also Like</h2>
+          <div class="product-grid" id="related-products">
+            <!-- Related products will be loaded dynamically -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/product.js"></script>
+  </body>
+</html>

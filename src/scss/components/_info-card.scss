@@ -1,0 +1,91 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Grid layout for info cards
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-xl;
+
+  @include desktop {
+    gap: $spacing-sm;
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-lg;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
+
+// Universal info card component
+.info-card {
+  text-align: center;
+  padding: $spacing-md;
+
+  @include desktop {
+    padding: 4px;
+  }
+
+  @include mobile {
+    padding: 0;
+    text-align: start;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    margin-bottom: $spacing-md;
+
+    @include mobile {
+      min-width: 62px;
+      margin-bottom: 0;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-sm;
+
+    @include mobile {
+      font-size: $font-size-base;
+      display: none;
+    }
+  }
+
+  &__text,
+  &__description {
+    color: $text-primary;
+    margin-bottom: $spacing-xs;
+
+    @include mobile {
+      font-size: $font-size-small;
+      margin-bottom: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__text span {
+    display: inline-block;
+  }
+}

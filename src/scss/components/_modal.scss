@@ -1,0 +1,87 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ===========================================
+// MODAL WINDOW
+// ===========================================
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $transition-slow, visibility $transition-slow;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+
+  &__content {
+    position: relative;
+    background-color: $bg-primary;
+    padding: $spacing-xxl $spacing-xxxl $spacing-xl $spacing-xxxl;
+    max-width: 480px;
+    width: 90%;
+    z-index: 1001;
+    box-shadow: $box-shadow-heavy;
+
+    @include mobile {
+      padding: $spacing-md;
+      max-width: 95%;
+    }
+  }
+}
+
+// ===========================================
+// LOGIN FORM - specific styles
+// ===========================================
+
+.login-form {
+  @include flex-column;
+
+  // Override base border color for login
+  .form-input {
+    border-color: $primary-color;
+  }
+
+  .form-error {
+    font-size: 13px;
+  }
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-xs 0 $spacing-md 0;
+}
+
+.forgot-password {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  color: $primary-color;
+  text-decoration: none;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

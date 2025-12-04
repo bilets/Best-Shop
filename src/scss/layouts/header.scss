@@ -1,0 +1,263 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Header Component
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $bg-primary;
+  z-index: 1000;
+  padding: $spacing-lg 0 $spacing-sm 0;
+
+  @include desktop {
+    padding: $spacing-md 0 $spacing-xs 0;
+  }
+
+  @include tablet {
+    padding: $spacing-sm 0 $spacing-xs 0;
+  }
+
+  @include mobile {
+    padding: 0;
+  }
+
+  &__container {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+
+    @include desktop {
+      gap: $spacing-xs;
+    }
+
+    @include tablet {
+      gap: $spacing-xs;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: $spacing-lg;
+    border-bottom: 1px solid $secondary-color;
+
+    @include desktop {
+      padding-bottom: $spacing-md;
+    }
+
+    @include tablet {
+      padding-bottom: $spacing-sm;
+    }
+
+    @include mobile {
+      padding: $spacing-xs 0;
+      border-bottom: none;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 12px;
+
+    @include mobile {
+      display: none;
+    }
+
+    .social-icon {
+      width: 20px;
+      height: 20px;
+      @include flex-center;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-medium;
+    color: $text-primary;
+    letter-spacing: 0.5px;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: $spacing-xs;
+    }
+
+    .logo {
+      width: 227px;
+      height: 37px;
+
+      @include mobile {
+        width: 180px;
+        height: auto;
+      }
+    }
+
+    @include mobile {
+      order: 2;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__nav {
+    @include mobile {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: $bg-primary;
+      box-shadow: $box-shadow-medium;
+      padding: $spacing-md;
+
+      &.active {
+        display: block;
+      }
+    }
+
+    .nav-list {
+      @include flex-center;
+      gap: $spacing-lg;
+
+      @include mobile {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: $spacing-sm;
+      }
+    }
+
+    .nav-link {
+      position: relative;
+      font-weight: $font-weight-medium;
+      font-size: $font-size-base;
+      color: $text-primary;
+      transition: color $transition-fast;
+
+      &:hover,
+      &--active {
+        color: $primary-color;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-sm;
+    align-items: center;
+
+    @include mobile {
+      order: 3;
+    }
+
+    .cart-btn {
+      position: relative;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -6px;
+      right: -10px;
+      min-width: 19px;
+      height: 19px;
+      background-color: $bg-primary;
+      color: $primary-color;
+      border: $border-width $border-style $primary-color;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: $font-weight-medium;
+      @include flex-center;
+      padding-top: 2px;
+    }
+  }
+
+  .hamburger {
+    display: none;
+    @include button-reset;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 32px;
+    height: 24px;
+
+    @include mobile {
+      display: flex;
+      order: 1;
+    }
+
+    span {
+      width: 100%;
+      height: 3px;
+      background-color: $text-primary;
+      border-radius: 0;
+      transition: all $transition-fast;
+    }
+
+    &.active {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+    }
+  }
+
+  .nav-social {
+    display: none;
+
+    @include mobile {
+      display: flex;
+      gap: $spacing-md;
+      padding-top: $spacing-md;
+      border-top: 1px solid $secondary-color;
+      margin-top: $spacing-md;
+      justify-content: center;
+    }
+
+    .social-icon {
+      width: 20px;
+      height: 20px;
+      @include flex-center;
+    }
+  }
+}
+
+// Main content padding for fixed header
+main {
+  padding-top: $spacing-header-large-desktop;
+
+  @include desktop {
+    padding-top: $spacing-header-desktop;
+  }
+
+  @include tablet {
+    padding-top: $spacing-header-tablet;
+  }
+
+  @include mobile {
+    padding-top: $spacing-header-mobile;
+  }
+}
+
+// Prevent header flash on load
+#header-container {
+  opacity: 0;
+  transition: opacity $transition-normal;
+
+  &.loaded {
+    opacity: 1;
+  }
+}

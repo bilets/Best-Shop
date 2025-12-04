@@ -1,0 +1,313 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:color';
+
+// NOTE: .page-hero component is defined in components/_page-hero.scss (shared component)
+
+// Cart Section
+.cart-section {
+  padding: $spacing-xxxl 0 120px 0;
+
+  @include tablet {
+    padding: $spacing-xl 0;
+  }
+
+  @include mobile {
+    padding: $spacing-lg 0;
+  }
+
+  &__container {
+    @include container;
+  }
+}
+
+// Cart Table Wrapper
+.cart-table-wrapper {
+  width: 100%;
+  margin-bottom: $spacing-xxxl;
+}
+
+// Cart Table
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  &__head {
+    background-color: $bg-dark;
+
+    th {
+      padding: $spacing-sm;
+      font-family: $font-family-btn-card;
+      font-size: $font-size-large;
+      font-weight: $font-weight-bold;
+      color: $text-light;
+      text-align: left;
+
+      &:first-child,
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5),
+      &:nth-child(6) {
+        text-align: center;
+      }
+
+      @include tablet {
+        padding: $spacing-xs;
+        font-size: $font-size-base;
+      }
+
+      @include mobile {
+        padding: $spacing-xs;
+        font-size: $font-size-base;
+
+        &:first-child {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__body {
+    tr {
+      border-bottom: 2px solid $primary-color;
+    }
+
+    td {
+      padding: $spacing-xs $spacing-sm;
+      vertical-align: middle;
+
+      @include tablet {
+        padding: $spacing-xs;
+      }
+
+      @include mobile {
+        padding: $spacing-xs;
+      }
+    }
+  }
+
+  &__image-cell {
+    height: 120px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+
+    @include mobile {
+      display: none;
+    }
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  &__name {
+    font-family: $font-family-btn-card;
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+  }
+
+  &__price,
+  &__quantity,
+  &__total,
+  &__delete {
+    text-align: center;
+  }
+
+  &__price {
+    font-weight: $font-weight-bold;
+  }
+
+  &__total {
+    font-weight: $font-weight-bold;
+  }
+}
+
+// Quantity Selector
+.quantity-controls {
+  @include flex-center;
+  gap: $spacing-xs;
+
+  &__btn {
+    @include button-reset;
+    font-size: 34px;
+    font-weight: $font-weight-bold;
+    font-family: $font-family-btn-card;
+    line-height: 1;
+    padding-bottom: 5px;
+    transition: all $transition-fast;
+
+    @include mobile {
+      font-size: $font-size-xl;
+    }
+
+    &:hover:not(:disabled) {
+      color: $primary-color;
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  &__value {
+    min-width: 27px;
+    font-size: $font-size-xl;
+    font-family: $font-family-btn-card;
+    font-weight: $font-weight-bold;
+    line-height: 1;
+
+    @include mobile {
+      min-width: 20px;
+      font-size: $font-size-base;
+    }
+  }
+}
+
+// Delete Button
+.delete-btn {
+  @include button-reset;
+  color: $primary-color;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: color.adjust($primary-color, $lightness: -10%);
+    transform: translateY(-1px);
+    box-shadow: $box-shadow-medium;
+  }
+}
+
+.cart-actions-summary-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 150px;
+
+  @include desktop {
+    gap: $spacing-xxl;
+  }
+
+  @include tablet {
+    gap: $spacing-xxxl;
+    grid-template-columns: 1fr;
+  }
+
+  @include mobile {
+    gap: $spacing-xl;
+    grid-template-columns: 1fr;
+  }
+}
+
+// Cart Actions
+.cart-actions {
+  order: 1;
+  display: flex;
+  gap: $spacing-md;
+  align-items: start;
+
+  @include tablet {
+    order: 2;
+  }
+
+  @include mobile {
+    order: 2;
+    flex-direction: column;
+  }
+
+  .btn {
+    font-size: $font-size-small;
+    padding: $spacing-sm;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+}
+
+// Cart Summary
+.cart-summary {
+  order: 2;
+
+  padding: $spacing-xl;
+  background-color: $bg-dark;
+  color: $text-light;
+
+  @include tablet {
+    order: 1;
+  }
+
+  @include mobile {
+    order: 1;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacing-sm 0;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    border-bottom: 2px solid $primary-color;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    &--total {
+      font-size: 20px;
+    }
+  }
+
+  .btn {
+    padding: $spacing-xs $spacing-xxl;
+    font-size: $font-size-large;
+    margin-top: $spacing-lg;
+
+    @include mobile {
+      margin-top: $spacing-md;
+    }
+  }
+}
+
+// Empty Cart
+.cart-empty {
+  text-align: center;
+  padding: $spacing-xxxl 0;
+
+  @include mobile {
+    padding: $spacing-xl 0;
+  }
+
+  p {
+    font-size: $font-size-large;
+    color: $text-secondary;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+// Thank You Message
+.cart-thankyou {
+  text-align: center;
+  padding: $spacing-xxxl 0;
+
+  @include mobile {
+    padding: $spacing-xl 0;
+  }
+
+  h2 {
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: $font-size-large;
+    color: $text-secondary;
+    margin-bottom: $spacing-lg;
+
+    @include mobile {
+      font-size: $font-size-base;
+    }
+  }
+}

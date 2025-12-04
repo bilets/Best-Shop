@@ -1,0 +1,152 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ===========================================
+// BASE FORM STYLES
+// Used across: Login modal, Contact form, Review form
+// ===========================================
+
+// Form group - container for label + input + error
+.form-group {
+  @include flex-column;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-sm;
+}
+
+// Form labels
+.form-label {
+  display: block;
+  font-size: $font-size-small;
+  font-weight: $font-weight-medium;
+  color: $text-primary;
+
+  .required {
+    color: $primary-color;
+  }
+}
+
+// Form inputs and textareas
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: $spacing-xs $spacing-sm;
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  color: $text-primary;
+  background-color: $bg-primary;
+  border: $border-width $border-style $border-color;
+  border-radius: $border-radius-sm;
+  transition: border-color $transition-fast;
+
+  &::placeholder {
+    color: $text-muted;
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+  }
+
+  &.error {
+    border-color: $error-color;
+  }
+}
+
+// Textarea specific
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+// Error message
+.form-error {
+  display: block;
+  font-size: $font-size-xs;
+  color: $error-color;
+  min-height: 18px;
+}
+
+// Form submit message (success/error)
+.form-message {
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-small;
+  text-align: center;
+  display: none;
+  opacity: 0;
+  transition: opacity $transition-fast;
+
+  &.success,
+  &--success {
+    display: block;
+    opacity: 1;
+    background-color: $bg-success;
+    color: $success-color;
+    border: 1px solid $success-color;
+  }
+
+  &.error,
+  &--error {
+    display: block;
+    opacity: 1;
+    background-color: $bg-error;
+    color: $error-color;
+    border: 1px solid $error-color;
+  }
+}
+
+// ===========================================
+// CHECKBOX STYLES
+// ===========================================
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  cursor: pointer;
+  font-size: $font-size-xs;
+  color: $text-muted;
+}
+
+.checkbox-input {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  accent-color: $primary-color;
+}
+
+.checkbox-text {
+  user-select: none;
+}
+
+// ===========================================
+// PASSWORD FIELD
+// ===========================================
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  @include button-reset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  .eye-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+}

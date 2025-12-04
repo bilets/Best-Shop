@@ -1,0 +1,547 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Catalog Section
+.catalog-section {
+  padding: $spacing-xs 0 $spacing-xxxl 0;
+
+  @include mobile {
+    padding: $spacing-xs 0 $spacing-xl 0;
+  }
+
+  &__container {
+    @include container;
+  }
+}
+
+// Catalog Filters Section
+.catalog-filters {
+  &__top {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+    padding: $spacing-sm 0 $spacing-lg 0;
+    border-top: 2px solid $primary-color;
+    border-bottom: 2px solid $primary-color;
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+
+  &__label {
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+  }
+
+  &__select {
+    padding: $spacing-xs;
+    border: $border-width $border-style $border-color;
+    color: $text-muted;
+    font-size: $font-size-xs;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &:focus {
+      outline: none;
+    }
+
+    // Highlight when a filter is selected
+    &.has-value {
+      border-color: $primary-color;
+      color: $text-primary;
+      font-weight: $font-weight-medium;
+    }
+
+    option {
+      color: $text-primary;
+    }
+  }
+
+  &__checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  &__checkbox {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    color: $muted-color;
+    accent-color: $primary-color;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-md;
+
+    @include mobile {
+      flex-direction: column;
+    }
+  }
+
+  &__btn {
+    font-size: $font-size-small;
+    text-transform: uppercase;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+}
+
+// Custom Dropdown (hover-activated)
+.custom-dropdown {
+  position: relative;
+
+  &__selected {
+    padding: $spacing-xs;
+    padding-right: $spacing-lg;
+    border: $border-width $border-style $border-color;
+    color: $text-muted;
+    font-size: $font-size-xs;
+    cursor: pointer;
+    transition: all $transition-fast;
+    background-color: $bg-primary;
+    background-image: url('/src/assets/images/arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: right $spacing-xs center;
+    background-size: 12px;
+
+    // Highlight when a filter is selected
+    &.has-value {
+      border-color: $primary-color;
+      color: $text-primary;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: $bg-primary;
+    border: $border-width $border-style $border-color;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all $transition-fast;
+  }
+
+  &__item {
+    padding: $spacing-xs;
+    font-size: $font-size-xs;
+    color: $text-primary;
+    cursor: pointer;
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background-color: rgba($primary-color, 0.1);
+      color: $primary-color;
+    }
+
+    &.selected {
+      background-color: rgba($primary-color, 0.15);
+      color: $primary-color;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  // Open dropdown on hover
+  &:hover &__menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &:hover &__selected {
+    border-color: $primary-color;
+  }
+}
+
+// Catalog Main Layout (Products + Sidebar)
+.catalog-main {
+  display: grid;
+  grid-template-columns: 1fr 379px;
+  grid-template-rows: auto;
+  margin-top: $spacing-xl;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Catalog Controls (Search + Sort)
+.catalog-controls {
+  margin-bottom: $spacing-lg;
+  grid-column: 1/ 3;
+  grid-row: 1 / 2;
+  position: relative;
+
+  display: flex;
+  flex-wrap: nowrap;
+  gap: $spacing-xl;
+  align-items: center;
+
+  @include desktop {
+    margin-top: 60px;
+  }
+
+  @include tablet {
+    margin-top: 60px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  @include mobile {
+    margin-top: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: $spacing-md;
+  }
+}
+
+// Catalog Results
+.catalog-results {
+  min-width: 215px;
+  margin-right: auto;
+
+  @include tablet {
+    order: 2;
+  }
+
+  @include mobile {
+    order: 2;
+  }
+
+  &__text {
+    font-size: $font-size-medium;
+    color: $text-secondary;
+  }
+}
+
+// Sort Dropdown
+.sort-dropdown {
+  &__select {
+    height: 40px;
+    padding: 0 $spacing-xs;
+    border: $border-width $border-style $border-color;
+    color: $text-secondary;
+    font-size: $font-size-medium;
+    cursor: pointer;
+    transition: all $transition-fast;
+    min-width: 200px;
+
+    @include mobile {
+      width: 100%;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: $primary-color;
+      outline: none;
+    }
+  }
+}
+
+// Show Filters Button (in controls row)
+.show-filters-btn {
+  height: 40px;
+  padding: 0 $spacing-md;
+  font-size: $font-size-small;
+  text-transform: uppercase;
+
+  @include desktop {
+    position: absolute;
+    top: -50px;
+    left: 0;
+  }
+
+  @include tablet {
+    position: absolute;
+    top: -50px;
+    left: 0;
+  }
+
+  @include mobile {
+    position: static;
+    width: 100%;
+    order: -1;
+  }
+}
+
+// Search Bar
+.search-bar {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border: $border-width $border-style $border-color;
+  transition: border-color $transition-fast;
+  width: 339px;
+
+  @include mobile {
+    width: 100%;
+  }
+
+  &:focus-within {
+    border-color: $primary-color;
+  }
+
+  &__input {
+    border: none;
+    padding: 0 $spacing-xs;
+    font-size: $font-size-medium;
+    outline: none;
+    flex: 1;
+
+    @include mobile {
+      min-width: unset;
+    }
+
+    &::placeholder {
+      color: $text-secondary;
+    }
+  }
+
+  &__button {
+    @include button-reset;
+    @include flex-center;
+    padding: $spacing-sm;
+    color: $primary-color;
+    transition: color $transition-fast;
+    background-image: url('/src/assets/images/search-icon.svg');
+    background-repeat: no-repeat;
+    background-position: right $spacing-xs center;
+
+    &:hover {
+      color: $text-primary;
+    }
+  }
+}
+
+// Product Grid Override for Catalog Page
+.catalog-main__products .product-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(8px, 2vw, 16px);
+
+  @include desktop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Pagination
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $spacing-md;
+  margin-top: $spacing-xxl;
+
+  @include mobile {
+    flex-wrap: wrap;
+  }
+
+  &__btn {
+    @include button-reset;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: $spacing-xs $spacing-md;
+    border: $border-width $border-style $primary-color;
+    border-radius: 5px;
+    color: $text-primary;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    font-family: $font-family-secondary;
+    text-transform: uppercase;
+    transition: all $transition-fast;
+
+    &:hover:not(:disabled) {
+      background-color: $primary-color;
+      color: $text-light;
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    &--prev {
+      svg {
+        display: none;
+      }
+    }
+
+    &--next {
+      svg {
+        display: none;
+      }
+    }
+
+    @include mobile {
+      padding: $spacing-xs $spacing-sm;
+      font-size: $font-size-xs;
+    }
+  }
+
+  &__pages {
+    display: flex;
+    gap: $spacing-sm;
+  }
+
+  &__page {
+    @include button-reset;
+    @include flex-center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 $spacing-sm;
+    border-radius: 5px;
+    background-color: $bg-primary;
+    color: $text-primary;
+    font-size: $font-size-small;
+    font-weight: $font-weight-medium;
+    font-family: $font-family-secondary;
+    transition: all $transition-fast;
+
+    @include mobile {
+      min-width: 40px;
+      height: 40px;
+      font-size: $font-size-small;
+    }
+
+    &:hover {
+      background-color: $primary-color;
+      color: $text-light;
+    }
+
+    &--active {
+      background-color: $primary-color;
+      color: $text-light;
+
+      &:hover {
+        color: $text-light;
+      }
+    }
+  }
+}
+
+// Catalog Sidebar (Top Best Sets)
+.catalog-sidebar {
+  padding-left: $spacing-xl;
+  @include tablet {
+    display: none;
+  }
+
+  @include mobile {
+    display: none;
+  }
+
+  &__title {
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+// Best Sets List (Sidebar)
+.best-sets-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  &__item {
+    display: flex;
+    gap: $spacing-sm;
+    padding-bottom: $spacing-md;
+  }
+
+  &__image {
+    width: 87px;
+    height: 87px;
+    flex-shrink: 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    flex: 1;
+  }
+
+  &__name {
+    font-size: $font-size-small;
+    font-family: $font-family-secondary;
+    font-weight: $font-weight-regular;
+    color: $text-primary;
+    line-height: 1.4;
+  }
+
+  &__rating {
+    display: flex;
+    gap: 2px;
+  }
+
+  &__star {
+    font-size: 14px;
+
+    &--filled {
+      color: $star-color;
+    }
+
+    &--empty {
+      color: $muted-color;
+    }
+  }
+
+  &__price {
+    font-size: $font-size-small;
+    font-weight: $font-weight-regular;
+    color: $text-primary;
+  }
+}
+
+// Best Sets Section
+.best-sets-section {
+  padding: $spacing-xxxl 0;
+
+  @include mobile {
+    padding: $spacing-xl 0;
+  }
+
+  &__container {
+    @include container;
+  }
+}

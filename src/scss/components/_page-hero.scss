@@ -1,0 +1,85 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Universal Page Hero component
+.page-hero {
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+
+  @include flex-center;
+
+  // Default variant (used in cart, catalog, etc.)
+  // Fixed height without aspect-ratio
+  height: 229px;
+
+  @include tablet {
+    height: 200px;
+  }
+
+  @include mobile {
+    height: 180px;
+  }
+
+  // About & Contact variant (aspect-ratio instead of fixed height)
+  &--about,
+  &--contact {
+    height: auto;
+    aspect-ratio: 1700 / 554;
+
+    @include mobile {
+      aspect-ratio: 1000 / 554;
+    }
+  }
+
+  &--about {
+    background-image: url('/src/assets/images/about/about-banner.png');
+  }
+
+  &--contact {
+    background-image: url('/src/assets/images/contact/contact-banner.png');
+  }
+
+  &--cart {
+    background-image: url('/src/assets/images/cart/cart-banner.png');
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 600px;
+    padding: 0 $spacing-md;
+  }
+
+  &__title {
+    position: relative;
+    z-index: 2;
+    font-weight: $font-weight-bold;
+    color: $text-light;
+    text-align: center;
+    margin-bottom: $spacing-md;
+  }
+
+  &__subtitle {
+    font-size: $font-size-base;
+    color: $text-light;
+    line-height: 1.6;
+
+    @include mobile {
+      font-size: $font-size-small;
+    }
+  }
+}

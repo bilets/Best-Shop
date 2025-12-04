@@ -1,0 +1,74 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Product Grid Layout
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp($spacing-sm, 2vw, $spacing-xl);
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Product Card Component
+.product-card {
+  background-color: $bg-primary;
+  max-width: $product-card-width;
+  margin: 0 auto;
+  box-shadow: $box-shadow-light;
+
+  @include hover-lift;
+
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 4px 10px;
+    background-color: $primary-color;
+    color: $text-light;
+    font-size: 12px;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    z-index: 10;
+    letter-spacing: 0.5px;
+  }
+
+  &__image {
+    @include image-cover;
+  }
+
+  &__content {
+    padding: $spacing-sm;
+    @include flex-column;
+    gap: $spacing-xs;
+    text-align: center;
+    align-items: center;
+  }
+
+  &__title {
+    line-height: 1.4;
+    min-height: 60px;
+  }
+
+  &__price {
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    color: $text-secondary;
+  }
+}
