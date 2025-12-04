@@ -2,6 +2,8 @@
 
 Suitcase e-shop: Multi-page online store.
 
+🔗 **Live Demo:** [https://bilets.github.io/Best-Shop/](https://bilets.github.io/Best-Shop/)
+
 ## Project Setup
 
 ### Prerequisites
@@ -14,8 +16,8 @@ Suitcase e-shop: Multi-page online store.
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
-cd fundamentals-project-template
+git clone https://github.com/bilets/Best-Shop.git
+cd Best-Shop
 ```
 
 2. Install dependencies:
@@ -44,9 +46,21 @@ This command will:
 | ------------------- | ---------------------------------------- |
 | `npm run dev`       | Start development server with SCSS watch |
 | `npm run compile`   | Compile SCSS to CSS (one-time)           |
+| `npm run build`     | Build project for production             |
+| `npm run deploy`    | Deploy to GitHub Pages                   |
 | `npm run lint`      | Run ESLint and Stylelint                 |
 | `npm run lint:js`   | Run ESLint for JavaScript files          |
 | `npm run lint:scss` | Run Stylelint for SCSS files             |
+
+### Deployment
+
+To deploy the project to GitHub Pages:
+
+```bash
+npm run deploy
+```
+
+This will build the project and publish it to the `gh-pages` branch.
 
 ## Project Structure
 
