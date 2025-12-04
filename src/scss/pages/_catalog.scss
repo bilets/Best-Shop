@@ -115,7 +115,7 @@
     cursor: pointer;
     transition: all $transition-fast;
     background-color: $bg-primary;
-    background-image: url('/src/assets/images/arrow-down.svg');
+    background-image: url('../assets/images/arrow-down.svg');
     background-repeat: no-repeat;
     background-position: right $spacing-xs center;
     background-size: 12px;
@@ -333,7 +333,7 @@
     padding: $spacing-sm;
     color: $primary-color;
     transition: color $transition-fast;
-    background-image: url('/src/assets/images/search-icon.svg');
+    background-image: url('../assets/images/search-icon.svg');
     background-repeat: no-repeat;
     background-position: right $spacing-xs center;
 

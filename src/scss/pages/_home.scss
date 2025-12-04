@@ -146,7 +146,7 @@
   @include flex-center;
 
   aspect-ratio: 646 / 566;
-  background-image: url('/src/assets/images/home/discount-bg.png');
+  background-image: url('../assets/images/home/discount-bg.png');
   background-size: cover;
   background-position: center;
   overflow: hidden;
@@ -374,7 +374,7 @@
 
   &__content {
     position: relative;
-    background: url('/src/assets/images/home/offer-bg.png') center/cover;
+    background: url('../assets/images/home/offer-bg.png') center/cover;
     min-height: 407px;
     @include flex-center;
     padding: $spacing-md 100px;

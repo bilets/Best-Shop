@@ -599,13 +599,13 @@ p {
   }
 }
 .page-hero--about {
-  background-image: url("/src/assets/images/about/about-banner.png");
+  background-image: url("../assets/images/about/about-banner.png");
 }
 .page-hero--contact {
-  background-image: url("/src/assets/images/contact/contact-banner.png");
+  background-image: url("../assets/images/contact/contact-banner.png");
 }
 .page-hero--cart {
-  background-image: url("/src/assets/images/cart/cart-banner.png");
+  background-image: url("../assets/images/cart/cart-banner.png");
 }
 .page-hero__overlay {
   position: absolute;
@@ -928,7 +928,7 @@ main {
 }
 
 .benefits-section {
-  background-image: url("/src/assets/images/footer/our-benefits-bg.png");
+  background-image: url("../assets/images/footer/our-benefits-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1413,7 +1413,7 @@ main {
   justify-content: center;
   align-items: center;
   aspect-ratio: 646/566;
-  background-image: url("/src/assets/images/home/discount-bg.png");
+  background-image: url("../assets/images/home/discount-bg.png");
   background-size: cover;
   background-position: center;
   overflow: hidden;
@@ -1689,7 +1689,7 @@ main {
 }
 .offer-banner__content {
   position: relative;
-  background: url("/src/assets/images/home/offer-bg.png") center/cover;
+  background: url("../assets/images/home/offer-bg.png") center/cover;
   min-height: 407px;
   display: flex;
   justify-content: center;
@@ -1956,7 +1956,7 @@ main {
   cursor: pointer;
   transition: all 0.2s ease;
   background-color: #ffffff;
-  background-image: url("/src/assets/images/arrow-down.svg");
+  background-image: url("../assets/images/arrow-down.svg");
   background-repeat: no-repeat;
   background-position: right 8px center;
   background-size: 12px;
@@ -2168,7 +2168,7 @@ main {
   padding: 16px;
   color: #b92770;
   transition: color 0.2s ease;
-  background-image: url("/src/assets/images/search-icon.svg");
+  background-image: url("../assets/images/search-icon.svg");
   background-repeat: no-repeat;
   background-position: right 8px center;
 }
