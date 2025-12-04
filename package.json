@@ -20,7 +20,7 @@
     "lint:js": "eslint src/js/**/*.js",
     "lint:scss": "stylelint src/scss/**/*.scss",
     "lint": "npm-run-all lint:js lint:scss",
-    "build": "npm run compile && npm run build:copy",
+    "build": "npm run build:copy && npm run compile",
     "build:copy": "node scripts/copy-files.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
